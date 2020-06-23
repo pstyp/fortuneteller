@@ -35,11 +35,11 @@ Please see below for an example of how this logic can look.
 
 For this project, I have decided to produce a basic 'fortune teller' application. More specifically, this application is inspired by Omikuji, a type of Japanese fortune-telling. Based on the results from services 2 and 3, service 4 will determine the user's luck:
 
-(大吉): great blessing
-(吉) blessing
-(半吉): half-blessing
-(凶): curse
-(大凶): great curse
+* (大吉): great blessing
+* (吉) blessing
+* (半吉): half-blessing
+* (凶): curse
+* (大凶): great curse
 
 ## Architecture
 
