@@ -7,5 +7,5 @@ from application.models import Fortune
 @app.route('/', methods=['GET'])
 def home():
     fortuneData=Fortune.query.all()
-    requests.get('')
-    return render_template('home.html')
+    response=requests.get("http://service4:5003/fortune")
+    return render_template('home.html', title='Homepage', fortune=fortuneData)
