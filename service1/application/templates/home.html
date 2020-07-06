@@ -1,7 +1,8 @@
 
 
 {% block body_content %}
-
+<html>
+<body>
 
 <style>
 
@@ -12,6 +13,19 @@ hr {border-color: blue; }
 p {font-family: Montserrat,sans-serif;font-size:14px; font-color:black ;}
 </style>
 
+<h3> Omikuji: Japanese Fortune Teller </h3>
+
+<br>
+
+<h4> Your fortune: </h4>
+<h5> {{ response.text }} </h5> 
+
+<form action="{{url_for('home')}}">
+	<button type="submit">Click here to refresh</button>
 
 {% endblock %}
 
+
+</body>
+
+<html>

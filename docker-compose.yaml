@@ -1,0 +1,73 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql 
+    ports:
+    - target: 3306
+      published: 3306
+      protocol: tcp
+    environment: 
+     MYSQL_ROOT_PASSWORD: ${PASSWORD}
+     MYSQL_DATABASE: "flask-db" 
+
+  service1:
+    build: ./service1
+    image: pstyp94/service1
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+    depends_on:
+     - mysql
+    environment:
+      MYSQL_DATABASE: ${MY_DATABASE_URI}
+    deploy: 
+     replicas: 3
+
+   service2:
+    build: ./service2
+    image: pstyp94/service2
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+     deploy:
+       replicas: 3
+
+   service3:
+    build: ./service2
+    image: pstyp94/service3
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+    deploy:
+       replicas: 3
+
+
+   service4:
+    build: ./service1
+    image: pstyp94/service4
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp
+    depends_on:
+     - mysql
+    environment:
+      MYSQL_DATABASE: ${MY_DATABASE_URI}
+    deploy:
+     replicas: 3
+
+   nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
+    depends_on:
+    - service1
