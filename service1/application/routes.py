@@ -8,4 +8,5 @@ from application.models import Fortune
 def home():
     fortuneData=Fortune.query.all()
     response=requests.get("http://service4:5003/fortune")
-    return render_template('home.html', title='Homepage', fortune=fortuneData)
+    textresp=response.text
+    return render_template('home.html', title='Homepage', fortune=fortuneData, textresp=textresp)

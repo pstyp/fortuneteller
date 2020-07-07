@@ -9,7 +9,6 @@ services:
     environment: 
      MYSQL_ROOT_PASSWORD: ${PASSWORD}
      MYSQL_DATABASE: "flask-db" 
-
   service1:
     build: ./service1
     image: pstyp94/service1
@@ -20,21 +19,19 @@ services:
     depends_on:
      - mysql
     environment:
-      MYSQL_DATABASE: ${MY_DATABASE_URI}
+      DATABASE: ${DATABASE}
     deploy: 
      replicas: 3
-
-   service2:
+  service2:
     build: ./service2
     image: pstyp94/service2
     ports:
     - target: 5001
       published: 5001
       protocol: tcp
-     deploy:
+    deploy:
        replicas: 3
-
-   service3:
+  service3:
     build: ./service2
     image: pstyp94/service3
     ports:
@@ -44,8 +41,7 @@ services:
     deploy:
        replicas: 3
 
-
-   service4:
+  service4:
     build: ./service1
     image: pstyp94/service4
     ports:
@@ -55,11 +51,10 @@ services:
     depends_on:
      - mysql
     environment:
-      MYSQL_DATABASE: ${MY_DATABASE_URI}
+      DATABASE: ${DATABASE}
     deploy:
      replicas: 3
-
-   nginx:
+  nginx:
     image: nginx:latest
     ports:
     - target: 80
