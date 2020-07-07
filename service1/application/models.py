@@ -11,9 +11,3 @@ class Fortune(db.Model):
             'Fortune: ', self.fortune, '\r\n',
             'ID: ', str(self.id), '\r\n'
             ])
-
-~                                                                                                                  
-~                                                                                                                  
-~                                                                                                                  
-~                                                                                                                  
-~                              
