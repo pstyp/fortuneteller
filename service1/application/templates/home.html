@@ -13,16 +13,21 @@ hr {border-color: blue; }
 p {font-family: Montserrat,sans-serif;font-size:14px; font-color:black ;}
 </style>
 
-<h3> Omikuji: Japanese Fortune Teller </h3>
+<h2> Omikuji: Japanese Fortune Teller </h2>
 
 <br>
-
-<h4> Your fortune: </h4>
-<h5> {{ response.text }} </h5> 
+<div>
+<h3> Your fortune: </h3>
+<h4> {{ textresp }} </h4> 
 
 <form action="{{url_for('home')}}">
 	<button type="submit">Click here to refresh</button>
 
+</div> 
+
+<br>
+ <img src="https://i0.wp.com/blog.govoyagin.com/wp-content/uploads/2019/12/B6Z0Wa9HzBi.jpg?resize=770%2C515&ssl=1">
+	
 {% endblock %}
 
 
