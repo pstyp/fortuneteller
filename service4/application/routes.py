@@ -6,9 +6,9 @@ from application.models import Fortune
 
 @app.route('/fortune', methods=['GET', 'POST'])
 def fortune():
-    letter1=requests.get('http://service2:5001/letter1').text
-    letter2=requests.get('http://service3:5002/letter2').text
-    code=letter1+letter2
+    letter1=requests.get('http://service2:5001/letter1')
+    letter2=requests.get('http://service3:5002/letter2')
+    code=letter1.text+letter2.text
     if code=='AX':
         fortune='(大吉): great blessing'
         fort_code=Fortune(
