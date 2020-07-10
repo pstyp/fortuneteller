@@ -26,4 +26,6 @@ WTForms==2.3.1
 zipp==3.1.0
 requests
 cryptography
+selenium
+
                               
