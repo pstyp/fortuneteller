@@ -14,12 +14,12 @@ pipeline {
         }
         stage('Ansible') { 
             steps {
-              sh './jenkins_scripts/ansible.sh
+              sh './jenkins_scripts/ansible.sh'
             }
         }
         stage('Deploy') { 
             steps {
-              sh './jenkins_scripts/deploy.sh   
+              sh './jenkins_scripts/deploy.sh'   
             }
         }
     }

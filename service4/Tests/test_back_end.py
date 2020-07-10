@@ -45,28 +45,34 @@ class TestPosts(TestBase):
         assert repr(fortune)=='[Code: AX\r\nFortune: (大吉): great blessing\r\nID: 1\r\n]'
    
    
-   def test_fortune_1(self):
+  # def test_fortune_1(self):
       # letter1=requests.get('http://service2:5001/letter1').text
       # letter2=requests.get('http://service3:5002/letter2').text
-        with requests_mock.mock() as m:
-            m.get('http://service2:5001/letter1', text='A')
-            m.get('http://service2:5002/letter2', text='X') 
-            response = self.client.get(url_for('fortune'))
-            self.assertIn(b'AX', response.data)
-           
+   #     with requests_mock.mock() as m:
+    #        m.get('http://service2:5001/letter1', text='A')
+     #       m.get('http://service2:5002/letter2', text='X') 
+      #      response = self.client.get(url_for('fortune'))
+       #     self.assertIn(b'AX', response.data)
+   def test_fortune_1(self):
+       with patch("requests.get") as g:
+           g.side_effects=['AX']
+           g.return_value.text=g.side_effects[0]
+           response = self.client.get(url_for('fortune'))
+           self.assertIn(b'AX', response.data)        
 
    def test_fortune_2(self):
-       requests_mock.get('http://service2:5001/letter1', text='A')
-       requests_mock.get('http://service3:5002/letter2', text='X')
-       assert 'A' == requests.get('http://service2:5001/letter1').text
-
+       with patch("requests.get") as g:
+           g.side_effects=['AY']
+           g.return_value.text=g.side_effects[0]
+           response = self.client.get(url_for('fortune'))
+           self.assertIn(b'AY', response.data)
+           
    def test_fortune_3(self):
-       with patch.multiple("__main__", a="requests.get", x="requests.get") as g:
-           with patch("request.get") as p: 
-               g.side_effect=['B','X']
-               g.return_value.text=g.side_effect
-               response = self.client.get(url_for('fortune'))
-               self.assertIn(b'BX', response.data)
+       with patch("requests.get") as g:
+           g.side_effects=['BX']
+           g.return_value.text=g.side_effects[0]
+           response = self.client.get(url_for('fortune'))
+           self.assertIn(b'BX', response.data)
 
    def test_fortune_4(self):
        with patch("requests.get") as g:
