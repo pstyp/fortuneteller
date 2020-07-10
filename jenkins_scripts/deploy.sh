@@ -2,8 +2,11 @@
 
 source /home/jenkins/env_var.sh 
 
+cd .. << EOF
 docker-compose build
 docker-compose push
+
+EOF
 
 ssh pstyp94@project2 << EOF
 
