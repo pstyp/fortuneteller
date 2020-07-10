@@ -14,6 +14,6 @@ sudo docker stack deploy --compose-file docker-compose.yaml project
 
 sleep 5 
 
-sudo docker exec $(docker ps -q -f name=project_service1) python3 create.py
+sudo docker exec \$(docker ps -q -f name=project_service1) python3 create.py
 
 EOF
