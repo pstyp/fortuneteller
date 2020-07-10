@@ -2,8 +2,7 @@
 
 sudo apt-get install python3 -y
 sudo apt-get install python3-pip -y
-pip3 install pytest -y
-
+pip3 install pytest pytest-cov 
 pwd
 cd ..
 
