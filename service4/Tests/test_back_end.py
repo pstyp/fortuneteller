@@ -45,41 +45,34 @@ class TestPosts(TestBase):
         assert repr(fortune)=='[Code: AX\r\nFortune: (大吉): great blessing\r\nID: 1\r\n]'
    
    
-  # def test_fortune_1(self):
+   def test_fortune_1(self):
       # letter1=requests.get('http://service2:5001/letter1').text
       # letter2=requests.get('http://service3:5002/letter2').text
-   #     with requests_mock.mock() as m:
-    #        m.get('http://service2:5001/letter1', text='A')
-     #       m.get('http://service2:5002/letter2', text='X') 
-      #      response = self.client.get(url_for('fortune'))
-       #     self.assertIn(b'AX', response.data)
-   def test_fortune_1(self):
-       with patch("requests.get") as g:
-           g.side_effects=['AX']
-           g.return_value.text=g.side_effects[0]
+        with requests_mock.mock() as m:
+           m.get('http://service2:5001/letter1', text='A')
+           m.get('http://service3:5002/letter2', text='X') 
            response = self.client.get(url_for('fortune'))
-           self.assertIn(b'AX', response.data)        
-
+           self.assertIn(b'AX', response.data)
    def test_fortune_2(self):
-       with patch("requests.get") as g:
-           g.side_effects=['AY']
-           g.return_value.text=g.side_effects[0]
+       with requests_mock.mock() as m:
+           m.get('http://service2:5001/letter1', text='A')
+           m.get('http://service3:5002/letter2', text='Y')
            response = self.client.get(url_for('fortune'))
            self.assertIn(b'AY', response.data)
-           
-   def test_fortune_3(self):
-       with patch("requests.get") as g:
-           g.side_effects=['BX']
-           g.return_value.text=g.side_effects[0]
+       
+   def test_fortune_3(self): 
+       with requests_mock.mock() as m:
+           m.get('http://service2:5001/letter1', text='B')
+           m.get('http://service3:5002/letter2', text='X')
            response = self.client.get(url_for('fortune'))
            self.assertIn(b'BX', response.data)
 
    def test_fortune_4(self):
-       with patch("requests.get") as g:
-           g.side_effects=['BY']
-           g.return_value.text=g.side_effects[0]
+       with requests_mock.mock() as m:
+           m.get('http://service2:5001/letter1', text='B')
+           m.get('http://service3:5002/letter2', text='Y')
            response = self.client.get(url_for('fortune'))
            self.assertIn(b'BY', response.data)
-           
+
 
 
