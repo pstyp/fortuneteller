@@ -2,7 +2,7 @@
 manager ansible_host=project2
 
 [managers:vars]
-ansible_user=pstyp94
+ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
 
@@ -11,7 +11,7 @@ worker-1 ansible_host=project2-worker
 worker-2 ansible_host=project2-worker-2
 
 [workers:vars]
-ansible_user=pstyp94
+ansible_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
 
