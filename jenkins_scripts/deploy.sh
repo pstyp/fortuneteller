@@ -2,13 +2,13 @@
 
 source /home/jenkins/env_var.sh 
 
-cd .. << EOF
+
 sudo docker-compose build
 sudo docker-compose push
 
-EOF
 
-ssh pstyp94@project2 << EOF
+
+ssh jenkins@project2 << EOF
 
 sudo docker stack deploy --compose-file docker-compose.yaml project
 
