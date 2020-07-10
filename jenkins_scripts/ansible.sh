@@ -1,7 +1,8 @@
 #!/bin/bash
 
-cd .. << EOF
+pwd
 
-ansible-playbook -v -i inventory playbook.yaml
+cd .. 
+/home/jenkins/.local/bin/ansible-playbook -v -i inventory playbook.yaml
 
-EOF
+
