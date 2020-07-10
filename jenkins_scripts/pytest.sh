@@ -6,7 +6,6 @@ sudo apt-get install python3 -y
 sudo apt-get install python3-pip -y
 pip3 install pytest pytest-cov 
 pwd
-cd ..
 
 pip3 install -r ./service1/requirements.txt
 
