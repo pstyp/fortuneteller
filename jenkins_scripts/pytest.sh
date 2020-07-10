@@ -9,7 +9,8 @@ python3 -m venv venv
 . venv/bin/activate
 
 
-pip3 install pytest pytest-cov 
+pip3 install pytest pytest-cov
+pip3 install requests_mock
 pwd
 
 pip3 install -r ./service1/requirements.txt
