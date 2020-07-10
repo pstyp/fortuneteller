@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test'){ 
             steps {
-               sh './jenkins_scrips/pytest.sh'
+               sh './jenkins_scripts/pytest.sh'
                   
             }
         }
