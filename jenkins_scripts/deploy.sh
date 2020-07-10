@@ -6,7 +6,7 @@ source /home/jenkins/env_var.sh
 sudo docker-compose build
 sudo docker-compose push
 
-
+scp docker-compose.yaml jenkins@project2:/home/jenkins/
 
 ssh jenkins@project2 << EOF
 
