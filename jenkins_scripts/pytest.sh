@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo apt-get install python3
-sudo apt-get install python3-pip
-pip3 install pytest
+sudo apt-get install python3 -y
+sudo apt-get install python3-pip -y
+pip3 install pytest -y
 
 pwd
 cd ..
