@@ -3,5 +3,5 @@
 
 pwd
 
-/home/jenkins/.local/bin/ansible-playbook -v -i inventory playbook.yaml
+ansible-playbook -v -i inventory playbook.yaml
 
