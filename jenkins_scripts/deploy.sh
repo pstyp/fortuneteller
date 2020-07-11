@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-docker-compose build
-docker-compose push
+sudo -E docker-compose build
+sudo -E docker-compose push
 
 
 
