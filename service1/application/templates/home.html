@@ -24,6 +24,16 @@ p {font-family: Montserrat,sans-serif;font-size:14px; font-color:black ;}
 	<button type="submit">Click here to refresh</button>
 
 </div> 
+<br>
+<h5> Previous results: </h5>
+<div>
+{% for f in fortune %}
+
+<h5> {{ f.code }} </h5>
+<h5> {{ f.fortune }} </h5>
+
+{% endfor %}
+
 
 <br>
  <img src="https://i0.wp.com/blog.govoyagin.com/wp-content/uploads/2019/12/B6Z0Wa9HzBi.jpg?resize=770%2C515&ssl=1">
