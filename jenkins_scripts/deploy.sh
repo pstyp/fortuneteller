@@ -1,9 +1,6 @@
 #!/bin/bash
 
 
-source /home/jenkins/env_var.sh
-
-
 sudo docker-compose build
 sudo docker-compose push
 
