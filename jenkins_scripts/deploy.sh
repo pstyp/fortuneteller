@@ -14,5 +14,5 @@ export DATABASE=${DATABASE}
 export PASSWORD=${PASSWORD}
 sudo docker stack deploy --compose-file docker-compose.yaml project
 
-sudo docker exec \$(docker ps -q -f name=project_service1 | head -n 1) python3 create.pyy
+sudo docker exec \$(docker ps -q -f name=project_service1 | head -n 1) python3 create.py
 EOF
