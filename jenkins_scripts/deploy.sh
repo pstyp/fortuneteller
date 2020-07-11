@@ -4,6 +4,10 @@
 sudo docker-compose build
 sudo docker-compose push
 
+echo $DATABASE
+
+echo $PASSWORD 
+
 scp docker-compose.yaml jenkins@project2:/home/jenkins/
 
 ssh jenkins@project2 << EOF
