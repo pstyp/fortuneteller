@@ -18,7 +18,7 @@ sudo -E docker exec \$(docker ps -q -f name=project_service1 | head -n 1) python
 EOF
 
 
-ssh nginx-project << EOF
+ssh jenkins@nginx-project << EOF
 export DATABASE=${DATABASE}
 export PASSWORD=${PASSWORD}
 
