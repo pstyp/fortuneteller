@@ -22,6 +22,6 @@ ssh jenkins@nginx-project << EOF
 export DATABASE=${DATABASE}
 export PASSWORD=${PASSWORD}
 
-docker start nginx
+sudo -E docker start nginx
 
 EOF
