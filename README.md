@@ -55,30 +55,46 @@ As part of my presentation, I am required to make a push to my GitHub repository
 
 For this project I created a database with only one table. As such, there was no entity relationship. To create my database, I used a MYSQL container. Additionally, I created another database for my tests. This database is stored on Google Cloud Platform. The reason why I decided to do this is because I believed it would make testing my application easier as I would not have to run a container. 
 
+![table](https://github.com/pstyp/images/blob/master/table.png)
 
 * CI Pipepline
 
 Here you can see my initial CI pipeline as envisioned when I started working on this project:
 
+![cipipeline](https://github.com/pstyp/images/blob/master/CI%20pipeline%20PROJECT2.png)
+
 This pipeline has evolved a lot and this is the final result:
+
+![ci2](https://github.com/pstyp/images/blob/master/CI%20pipeline%20PROJECT2%20v2.png) 
 
 My application is stored on a Virtual Machine (Ubuntu) managed by Google Cloud Platform. This Virtual Machine is also my Docker swarm manager. Additionally, I have two worker Virtual Machines. My CI server is also stored on a seperate Virutal Machine.
 
 For this application, I used Python as my source code with Flask as my micro-framework. I used Git as my version control system and GitHub as my remote repository. I also used Jenkins as my CI server. Pytest was used for unit testing and a Trello board for project tracking. My Docker images are stored on DockerHub which is my artifact repository. 
 
-My continuous integration pipeline allows for a very efficient development-to-deployment cycle. Whenever I make a commit to my GitHub repository, GitHub sends a request to my Jenkins build server via web hook. Jenkins then automotically runs my pipeline using my Jenkinsfile and Jenkins scripts. As Jenkins stores all my variables, I do not need to export them manually. Jenkins first tests my application using pytest (after adding more permissions to the script). Then, it uses Ansible to install docker and connect my swarm manager to my workers (see my playbook and roles for details). Jenkins then builds new Docker images using docker-compose and pushes them to DockerHub. Finally, Docker stack deploy uses my images to create new containers. Nginx (stored on a separate VM) acts as a reverse-proxy and load balancer. The application should be accessible on port 80. 
+My continuous integration pipeline allows for a very efficient development-to-deployment cycle. Whenever I make a commit to my GitHub repository, GitHub sends a request to my Jenkins build server via web hook. Jenkins then automotically runs my pipeline using my Jenkinsfile and Jenkins scripts. As Jenkins stores all my variables, I do not need to export them manually. Jenkins first tests my application using pytest (after adding more permissions to the script). Then, it uses Ansible to install docker and connect my swarm manager to my workers (see my playbook and roles for details). Jenkins then builds new Docker images using docker-compose and pushes them to DockerHub. Finally, Docker stack deploy uses my images to create new containers. Nginx (stored on a separate VM) acts as a reverse-proxy and load balancer. The application should be accessible on port 80.
+
+![jenkins](https://github.com/pstyp/images/blob/master/jenkins_finished.png)
 
 Not only does Jenkins automate the deployment process, it also allows you to view the logs of your previous builds. They can be extremely useful as they allow you to see what exactly went wrong and when. This helps you fix all the problems with your build. 
 
+![console](https://github.com/pstyp/images/blob/master/jenkins_console_output.png) 
+
+![logs](https://github.com/pstyp/images/blob/master/jenkins_job.png)
+
 ## Project tracking
 
-I  used a Trello board for project tracking. I created several user stories that relate to features that I wanted like to include in my application. Although I initially planned to divide them into two categories - 'must-have' features (green) and 'could-have' features (yellow), I then changed my mind and decided that all of them are necessary. I managed to implement all the features I wanted to in some capacity as my application was not very complex. 
+![kanban2](https://github.com/pstyp/images/blob/master/kanban2.png)
+
+
+I used a Trello board for project tracking. I created several user stories that relate to features that I wanted like to include in my application. Although I initially planned to divide them into two categories - 'must-have' features (green) and 'could-have' features (yellow), I then changed my mind and decided that all of them are necessary. I managed to implement all the features I wanted to in some capacity as my application was not very complex. 
 
 
 Here you can view my trello board: https://trello.com/b/ruKaSkGE/qaproject2
 
 
 ## Risk Assessment
+
+![risk](https://github.com/pstyp/images/blob/master/risk_ass2.png)
 
 As part of the project, I conducted a comprehensive risk assessment. I tried to include all risks I thought would be significant. Nevertheless, it is possible I forgot to include some risks. At the end of the project I revisited my risk assessment. 
 
@@ -88,13 +104,23 @@ You can view me risk assessment here: https://docs.google.com/spreadsheets/d/1hV
 
 As I mentioned earlier, I used pytest to test the application. I tested all four services of my application. My unit test coverage was a hundred per cent for all of them. All tests passed successfully. In order to test my responses, I had to use requests_mock and patch modules to mock them. This is because service 4 and service 1 are dependant on other services. Although I could add more tests, I believe that for the purpose of this project, my unit tests should be sufficient as they tested databases, responses and all functionality. Given more time, I would try to add further tests.
 
+![serv1](https://github.com/pstyp/images/blob/master/service1_test.png)
+![serv2](https://github.com/pstyp/images/blob/master/service2_test.png)
+![serv3](https://github.com/pstyp/images/blob/master/service3_test.png)
+![serv4](https://github.com/pstyp/images/blob/master/service4_test.png)
+
 Aside from unit tests, I also added an integration test. This test also passed successfully when I ran it manually. Unfortunately, this test did not work when it was run by Jenkins. This is because I needed all the services to be running in order to run this test which was not possible because of the way in which my pipeline job was structured. This test can still be seen on the development branch of this project and in my test result report. Given more time, I would attempt to make it work with Jenkins.  
+
+![int](https://github.com/pstyp/images/blob/master/service1_int.png)
 
 Despite my efforts, I have not been able to find any bugs. However, it is important to mention that my application was rather simplistic. Given more time, I would spend more time looking for any potential bugs. 
 
 ## Front-End Design
 
 Front-end design was not the focus of this project. However, to make my application slightly more aesthetically pleasing, I added a simple background and a photo. 
+
+
+![frontend](https://github.com/pstyp/images/blob/master/frontend2.png)
 
 ## Future improvements
 
