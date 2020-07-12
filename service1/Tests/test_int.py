@@ -39,8 +39,10 @@ class TestBase(LiveServerTestCase):
         print("--------------------------END-OF-TEST----------------------------------------------\n\n\n-------------------------UNIT-AND-SELENIUM-TESTS----------------------------------------------")        
 
      def test_server_is_up_and_running(self):
-        response = urlopen("http://localhost:5000")
-        self.assertEqual(response.code, 200) 
+         with patch('requests.get') as g:
+            g.return_value.text = "BY ⇒ (大凶): great curse"
+            response = urlopen("http://localhost:5000")
+            self.assertEqual(response.code, 200) 
 
 
 
