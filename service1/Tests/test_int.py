@@ -39,20 +39,19 @@ class TestBase(LiveServerTestCase):
         print("--------------------------END-OF-TEST----------------------------------------------\n\n\n-------------------------UNIT-AND-SELENIUM-TESTS----------------------------------------------")        
 
      def test_server_is_up_and_running(self):
-         with patch('requests.get') as g:
-            g.return_value.text = "BY ⇒ (大凶): great curse"
-            response = urlopen("http://localhost:5000")
-            self.assertEqual(response.code, 200) 
+         response=urlopen("http://service2:5001")
+         response=urlopen("http://service3:5002")
+         response=urlopen("http://service4:5003")
+         response = urlopen("http://localhost:5000")
+         self.assertEqual(response.code, 200) 
 
 
 
 class TestButton(TestBase):
 
     def test_button(self):
-        with patch('requests.get') as g:
-            g.return_value.text = "BY ⇒ (大凶): great curse"
-            self.driver.find_element_by_xpath('/html/body/div/form/button').click()
-            time.sleep(1)
+        self.driver.find_element_by_xpath('/html/body/div/form/button').click()
+        time.sleep(1)
 
         assert url_for('home') in self.driver.current_url
 
