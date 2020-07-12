@@ -49,8 +49,8 @@ class TestButton(TestBase):
     def test_button(self):
         with patch('requests.get') as g:
             g.return_value.text = "BY ⇒ (大凶): great curse"
-        self.driver.find_element_by_xpath('/html/body/div/form/button').click()
-        time.sleep(1)
+            self.driver.find_element_by_xpath('/html/body/div/form/button').click()
+            time.sleep(1)
 
         assert url_for('home') in self.driver.current_url
 
