@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 import time
 from flask import url_for
 from urllib.request import urlopen
@@ -46,8 +47,8 @@ class TestBase(LiveServerTestCase):
 class TestButton(TestBase):
 
     def test_button(self):
-        with requests_mock.mock() as m:
-           m.get('http://service4:5003/fortune', text='AX')
+        with patch('requests.get') as g:
+            g.return_value.text = "BY ⇒ (大凶): great curse"
         self.driver.find_element_by_xpath('/html/body/div/form/button').click()
         time.sleep(1)
 
