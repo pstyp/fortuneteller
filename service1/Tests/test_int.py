@@ -2,7 +2,7 @@ import unittest
 import time
 from flask import url_for
 from urllib.request import urlopen
-
+import requests_mock
 from os import getenv
 from flask_testing import LiveServerTestCase
 from selenium import webdriver
@@ -43,10 +43,11 @@ class TestBase(LiveServerTestCase):
 
 
 
-class TestQuizCreation(TestBase):
+class TestButton(TestBase):
 
-    def test_quiz_creation(self):
-
+    def test_button(self):
+        with requests_mock.mock() as m:
+           m.get('http://service2:5003/letter4', text='AX')
         self.driver.find_element_by_xpath('/html/body/div/form/button').click()
         time.sleep(1)
 
