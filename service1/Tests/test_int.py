@@ -47,7 +47,7 @@ class TestButton(TestBase):
 
     def test_button(self):
         with requests_mock.mock() as m:
-           m.get('http://service2:5003/letter4', text='AX')
+           m.get('http://service4:5003/fortune', text='AX')
         self.driver.find_element_by_xpath('/html/body/div/form/button').click()
         time.sleep(1)
 
