@@ -113,7 +113,7 @@ Aside from unit tests, I also added an integration test. This test also passed s
 
 ![int](https://github.com/pstyp/images/blob/master/service1_int.png)
 
-Despite my efforts, I have not been able to find any bugs. However, it is important to mention that my application was rather simplistic. Given more time, I would spend more time looking for any potential bugs. 
+Despite my efforts, I have not been able to find any major bugs, which does not necessarily there are not any. The only error I noticed occurs when I leave the application on for a long time. It is a so-called 'OperationalError' which disappears if I refresh the application. However, it is important to mention that my application was rather simplistic which means that there are not many opportunities for bugs. Given more time, I would spend more time looking for any potential bugs.
 
 ## Front-End Design
 
