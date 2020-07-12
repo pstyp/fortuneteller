@@ -17,7 +17,7 @@ def fortune():
                 )
         db.session.add(fort_code)
         db.session.commit()
-        return code+' ⇒ '+fortune
+        return code+' ⇒ '+fortune+' You will be extremely lucky' 
     elif code=='AY':
         fortune='(吉): blessing'
         fort_code=Fortune(
@@ -26,7 +26,7 @@ def fortune():
                 )
         db.session.add(fort_code)
         db.session.commit()
-        return code+' ⇒ '+fortune
+        return code+' ⇒ '+fortune+' You will be somewhat lucky'
       
     elif code=='BX':
         fortune='(凶): curse'
@@ -36,7 +36,7 @@ def fortune():
                 )
         db.session.add(fort_code)
         db.session.commit()
-        return code+' ⇒ '+fortune
+        return code+' ⇒ '+fortune+' You will be rather unlucky'
     else:
         fortune='(大凶): great curse'
         fort_code=Fortune(
@@ -45,6 +45,6 @@ def fortune():
                 )
         db.session.add(fort_code)
         db.session.commit()
-        return code+' ⇒ '+fortune
+        return code+' ⇒ '+fortune+' You will be very unlucky'
     
 
