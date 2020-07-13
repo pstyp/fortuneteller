@@ -12,8 +12,9 @@
 7. [Testing and Bugs](#testing-and-bugs)
 8. [Front-End Design](#front-end-design)
 9. [Future Improvements](#future-improvements)
-10. [Acknowledgements](#acknowledgements)
-11. [Author](#author)
+10. [Licence](#licence)
+11. [Acknowledgements](#acknowledgements)
+12. [Author](#author)
 
 
 
