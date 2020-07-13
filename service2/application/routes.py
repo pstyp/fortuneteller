@@ -5,5 +5,5 @@ import random
 
 @app.route('/letter1', methods=['GET', 'POST'])
 def letter1():
-    letters1=['A', 'B']
-    return Response(letters1[random.randint(0,1)], mimetype='text/plain')
+    letters1=['A', 'B', 'C']
+    return Response(letters1[random.randint(0,2)], mimetype='text/plain')
