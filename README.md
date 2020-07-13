@@ -31,7 +31,7 @@ Services generating a random “Object” such as random number, random letter e
 
 * ### Service 4
 Service creating an “Object” based on the results of services 2 and 3 using a set of pre-defined rules.
-Please see below for an example of how this logic can look.
+
 
 ## My Application
 
@@ -46,9 +46,11 @@ Possible results:
 * (凶): curse (indicates that the user will be rather unlucky)
 * (大凶): great curse (indicates that the user will be extremely unlucky)
 
+My initial idea for this project was sligtly different as I wanted to include more results. However, in the end, I settled for only four choices in order to simplify my code. This was largely due to heavy time contraints
+
 ## Second implementation
 
-As part of my presentation, I am required to make a push to my GitHub repository and demonstrate that Jenkins will rebuild my application with minimal downtime. I made slight changes to all services. For service 1, I changed the background. Service 2 can generate letters A, B and C in this implemenation. Service 3 can generate letters X, Y, Z. I also slightly changed the output of service 4. As there are far more code options in this implementation, the user is far more likely to get '(大凶): great curse' as their fortune. In other words, the aim of this implemetation is to drastically decrease the chance of receiving other results. 
+As part of my presentation, I am required to make a push to my GitHub repository and demonstrate that Jenkins will rebuild my application with minimal downtime. I made slight changes to all services. For service 1, I changed the background. Service 2 can generate letters A, B and C in this implemenation. Service 3 can generate letters X, Y, Z. I also slightly changed the output of service 4 (added a short comment). As there are far more code options in this implementation, the user is far more likely to get '(大凶): great curse' as their fortune. In other words, the aim of this implemetation is to drastically decrease the chance of receiving other results. 
 
 ## Architecture
 
@@ -87,7 +89,7 @@ Not only does Jenkins automate the deployment process, it also allows you to vie
 ![kanban2](https://github.com/pstyp/images/blob/master/kanban2.png)
 
 
-I used a Trello board for project tracking. I created several user stories that relate to features that I wanted like to include in my application. Although I initially planned to divide them into two categories - 'must-have' features (green) and 'could-have' features (yellow), I then changed my mind and decided that all of them are necessary. I managed to implement all the features I wanted to in some capacity as my application was not very complex. 
+I used a Trello board for project tracking. I created several user stories that relate to features that I wanted like to include in my application. Although I initially planned to divide them into two categories - 'must-have' features (green) and 'could-have' features (yellow), I then changed my mind and decided that all of them are necessary. I managed to implement all the features I wanted to in some capacity as my application was not very complex. I moved different tasks to different columns throughout the project to ensure my project had all the necessary features. 
 
 
 Here you can view my trello board: https://trello.com/b/ruKaSkGE/qaproject2
@@ -97,7 +99,7 @@ Here you can view my trello board: https://trello.com/b/ruKaSkGE/qaproject2
 
 ![risk](https://github.com/pstyp/images/blob/master/risk_ass2.png)
 
-As part of the project, I conducted a comprehensive risk assessment. I tried to include all risks I thought would be significant. Nevertheless, it is possible I forgot to include some risks. At the end of the project I revisited my risk assessment. 
+As part of the project, I conducted a comprehensive risk assessment. I tried to include all risks I thought would be significant. Nevertheless, it is possible that I forgot to include some risks. At the beginning of the project I only made a short lists of risks which was then transformed into the table you can see below. At the end of the project I revisited my risk assessment and tried to determine what kind of problems have occured for future reference. 
 
 You can view me risk assessment here: https://docs.google.com/spreadsheets/d/1hV65p2aIRSzcAKAiYkczFPUz5rHyst5qW958FkKglDg/edit?usp=sharing
 
@@ -118,7 +120,7 @@ Despite my efforts, I have not been able to find any major bugs, which does not 
 
 ## Front-End Design
 
-Front-end design was not the focus of this project. However, to make my application slightly more aesthetically pleasing, I added a simple background and a photo. 
+Front-end design was not the focus of this project. However, to make my application slightly more aesthetically pleasing, I added a simple background and a photo. My front-end design has changed a lot throughout the project as I made several little changes (fonts, colours etc.). 
 
 
 ![frontend](https://github.com/pstyp/images/blob/master/frontend2.png)
